@@ -9,50 +9,113 @@
 <body>
     <header>
         <h1>Árvores de Decisão: ID3, C4.5, C5.0</h1>
+        <nav>
+            <ul>
+                <li><a href="#introducao">Introdução</a></li>
+                <li><a href="#id3">ID3</a></li>
+                <li><a href="#c45">C4.5</a></li>
+                <li><a href="#c50">C5.0</a></li>
+                <li><a href="#comparacao">Comparação</a></li>
+                <li><a href="#implementacao">Implementação</a></li>
+                <li><a href="#referencias">Referências</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#introducao">Introdução</a></li>
-            <li><a href="#id3">ID3</a></li>
-            <li><a href="#c45">C4.5</a></li>
-            <li><a href="#c50">C5.0</a></li>
-            <li><a href="#comparacao">Comparação</a></li>
-            <li><a href="#implementacao">Implementação</a></li>
-            <li><a href="#referencias">Referências</a></li>
-        </ul>
-    </nav>
     <main>
         <section id="introducao">
             <h2>Introdução</h2>
-            <p>Descrição geral das árvores de decisão e suas aplicações.</p>
+            <p>As árvores de decisão são estruturas de dados usadas para tomada de decisão. Elas são amplamente utilizadas em aprendizado de máquina e mineração de dados para classificar dados com base em atributos. Este site explora três algoritmos principais de árvores de decisão: ID3, C4.5 e C5.0.</p>
         </section>
         <section id="id3">
             <h2>ID3</h2>
-            <p>História, funcionamento e exemplos do algoritmo ID3.</p>
+            <h3>História e Criação</h3>
+            <p>O algoritmo ID3 (Iterative Dichotomiser 3) foi desenvolvido por Ross Quinlan nos anos 80. É um dos primeiros algoritmos usados para gerar árvores de decisão com base em um conjunto de dados de treinamento.</p>
+            <h3>Funcionamento do Algoritmo</h3>
+            <p>ID3 utiliza a entropia e o ganho de informação para construir a árvore de decisão. A entropia mede a incerteza dos dados, e o ganho de informação calcula a redução dessa incerteza ao dividir os dados com base em um atributo.</p>
+            <h3>Exemplo Prático</h3>
+            <p>Um exemplo clássico de ID3 é a classificação de tipos de clima para determinar se devemos ou não jogar tênis.</p>
         </section>
         <section id="c45">
             <h2>C4.5</h2>
-            <p>Evolução do ID3, melhorias e exemplos do algoritmo C4.5.</p>
+            <h3>Evolução do ID3</h3>
+            <p>O algoritmo C4.5, também desenvolvido por Ross Quinlan, é uma extensão do ID3. Ele resolve várias limitações do ID3, como o tratamento de dados ausentes e atributos contínuos.</p>
+            <h3>Melhorias e Características</h3>
+            <p>C4.5 utiliza o conceito de razão de ganho, uma variação do ganho de informação, e é capaz de podar a árvore para evitar overfitting.</p>
+            <h3>Exemplo Prático</h3>
+            <p>Um exemplo de uso do C4.5 é na classificação de tipos de plantas com base em características físicas como altura, cor, etc.</p>
         </section>
         <section id="c50">
             <h2>C5.0</h2>
-            <p>Avanços, vantagens e desvantagens do algoritmo C5.0.</p>
+            <h3>Avanços em Relação ao C4.5</h3>
+            <p>C5.0 é uma versão aprimorada do C4.5, com melhor eficiência e precisão. Ele utiliza menos memória e é mais rápido, além de suportar conjuntos de dados maiores.</p>
+            <h3>Vantagens e Desvantagens</h3>
+            <p>As principais vantagens do C5.0 incluem melhor desempenho e maior precisão. No entanto, como todos os modelos de aprendizado, ele ainda pode ser suscetível a overfitting se não for adequadamente ajustado.</p>
+            <h3>Exemplo Prático</h3>
+            <p>Um exemplo de aplicação do C5.0 é na detecção de fraudes em transações financeiras.</p>
         </section>
         <section id="comparacao">
             <h2>Comparação</h2>
-            <p>Comparação entre ID3, C4.5 e C5.0 em termos de eficiência, precisão e complexidade.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Algoritmo</th>
+                        <th>Eficiência</th>
+                        <th>Precisão</th>
+                        <th>Complexidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ID3</td>
+                        <td>Média</td>
+                        <td>Média</td>
+                        <td>Baixa</td>
+                    </tr>
+                    <tr>
+                        <td>C4.5</td>
+                        <td>Alta</td>
+                        <td>Alta</td>
+                        <td>Média</td>
+                    </tr>
+                    <tr>
+                        <td>C5.0</td>
+                        <td>Altíssima</td>
+                        <td>Altíssima</td>
+                        <td>Baixa</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
         <section id="implementacao">
             <h2>Implementação</h2>
-            <p>Exemplos de código e passo a passo para construir uma árvore de decisão.</p>
+            <h3>Exemplo de Código (Python)</h3>
+            <pre><code>import numpy as np
+from sklearn.tree import DecisionTreeClassifier
+
+# Exemplo de dados
+X = np.array([[1, 2], [3, 4], [5, 6], [7, 8]])
+y = np.array([0, 1, 0, 1])
+
+# Criando e treinando o modelo
+clf = DecisionTreeClassifier()
+clf.fit(X, y)
+
+# Fazendo previsões
+predictions = clf.predict([[1, 2], [7, 8]])
+print(predictions)</code></pre>
         </section>
         <section id="referencias">
             <h2>Referências</h2>
-            <p>Listagem de artigos, livros e materiais de referência utilizados.</p>
+            <p>Para mais informações, consulte os seguintes recursos:</p>
+            <ul>
+                <li>Quinlan, J. R. (1986). "Induction of Decision Trees". Machine Learning.</li>
+                <li>Quinlan, J. R. (1993). "C4.5: Programs for Machine Learning". Morgan Kaufmann.</li>
+                <li>Kuhn, M., & Johnson, K. (2013). "Applied Predictive Modeling". Springer.</li>
+            </ul>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Seu Nome</p>
+        <p>&copy; 2024 CleberLima</p>
     </footer>
 </body>
 </html>
